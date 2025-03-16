@@ -28,18 +28,21 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=02e281f0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=426fa013"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/storage';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -150,22 +153,26 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">For users</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../getting-started/index.html">Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/why-cubed.html">Why Cubed?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/installation.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/demo.html">Demo</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">User Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="executors.html">Executors</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory.html">Memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reliability.html">Reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scaling.html">Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnostics.html">Diagnostics</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference external" href="https://cubed-dev.github.io/cubed/cubed-intro.slides.html">Intro slides</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/tomwhite/cubed/tree/main/examples/README.md">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/how-to-run.html">How to run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/basic-array-ops.html">Basic array operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/zarr.html">Zarr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/xarray.html">Xarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/rechunking.html">Rechunking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/pangeo.html">Pangeo</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.Array.html">cubed.Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.Array.compute.html">cubed.Array.compute</a></li>
@@ -180,6 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.apply_gufunc.html">cubed.apply_gufunc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.map_blocks.html">cubed.map_blocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.map_overlap.html">cubed.map_overlap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.rechunk.html">cubed.rechunk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.nanmean.html">cubed.nanmean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.nansum.html">cubed.nansum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.pad.html">cubed.pad</a></li>
@@ -188,16 +196,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.Spec.html">cubed.Spec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.TaskEndEvent.html">cubed.TaskEndEvent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.measure_reserved_mem.html">cubed.measure_reserved_mem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.local.SingleThreadedExecutor.html">cubed.runtime.executors.local.SingleThreadedExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.local.ThreadsExecutor.html">cubed.runtime.executors.local.ThreadsExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.local.ProcessesExecutor.html">cubed.runtime.executors.local.ProcessesExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.beam.BeamExecutor.html">cubed.runtime.executors.beam.BeamExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.lithops.LithopsExecutor.html">cubed.runtime.executors.lithops.LithopsExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.modal.ModalExecutor.html">cubed.runtime.executors.modal.ModalExecutor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../array-api.html">Python Array API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../why-cubed.html">Why Cubed?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../related-projects.html">Related Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../articles.html">Articles and Presentations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">For developers</span></p>
 <ul class="nav bd-sidenav">
@@ -353,8 +358,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-storage">Local storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-storage">Cloud storage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-intermediate-data">Deleting intermediate data</a></li>
 </ul>
             </nav>
         </div>
@@ -369,21 +374,20 @@ document.write(`
   <section id="storage">
 <h1>Storage<a class="headerlink" href="#storage" title="Link to this heading">#</a></h1>
 <p>Cubed uses a filesystem working directory to store intermediate data (in the form of Zarr arrays) when running a computation. By default this is a local temporary directory, which is appropriate for the default local executor.</p>
+<section id="local-storage">
+<h2>Local storage<a class="headerlink" href="#local-storage" title="Link to this heading">#</a></h2>
+<p>Cubed will delete intermediate data only when the main Python process running the computation exits. If you run many computations in one process (in a Jupyter Notebook, for example), then you could risk running out of local storage. The directories where intermediate data is stored that Cubed creates by default are named <code class="docutils literal notranslate"><span class="pre">$TMPDIR/cubed-*</span></code>; these can be removed manually with regular file commands like <code class="docutils literal notranslate"><span class="pre">rm</span></code>.</p>
+</section>
 <section id="cloud-storage">
 <h2>Cloud storage<a class="headerlink" href="#cloud-storage" title="Link to this heading">#</a></h2>
 <p>When using a cloud service, the working directory should be set to a cloud storage directory in the same cloud region that the executor runtimes are in. In this case the directory is specified as a <a class="reference external" href="https://filesystem-spec.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a> URL, such as <code class="docutils literal notranslate"><span class="pre">s3://cubed-tomwhite-temp</span></code>. This is how you would set it using a <a class="reference internal" href="../generated/cubed.Spec.html#cubed.Spec" title="cubed.Spec"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spec</span></code></a> object:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cubed</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cubed</span>
 
 <span class="n">spec</span> <span class="o">=</span> <span class="n">cubed</span><span class="o">.</span><span class="n">Spec</span><span class="p">(</span><span class="n">work_dir</span><span class="o">=</span><span class="s2">&quot;s3://cubed-tomwhite-temp&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note that you need to create the bucket before running a computation.</p>
-</section>
-<section id="deleting-intermediate-data">
-<h2>Deleting intermediate data<a class="headerlink" href="#deleting-intermediate-data" title="Link to this heading">#</a></h2>
-<p>Cubed does not delete any intermediate data that it writes, so you should ensure it is cleared out so you don’t run out of space or incur unnecessary cloud storage costs.</p>
-<p>For a local temporary directory, the operating system will typically remove old files, but if you are running a lot of jobs in a short period of time you may need to manually clean them up. The directories that Cubed creates by default are named <code class="docutils literal notranslate"><span class="pre">$TMPDIR/cubed-*</span></code>; these can be removed with regular file commands like <code class="docutils literal notranslate"><span class="pre">rm</span></code>.</p>
-<p>On cloud object stores the data does not get removed automatically. Rather than removing the old data manually, it’s convenient to use a dedicated bucket for intermediate data with a lifecycle rule that deletes data after a certain time.</p>
+<p>On cloud object stores intermediate data does <em>not</em> get removed automatically, so you should ensure it is cleared out so you don’t incur unnecessary cloud storage costs. Rather than removing the old data manually, it’s convenient to use a dedicated bucket for intermediate data with a lifecycle rule that deletes data after a certain time.</p>
 <p>To set up a lifecycle rule:</p>
 <ul class="simple">
 <li><p>For <strong>Google Cloud Storage</strong>, in the cloud console click on the bucket, then the “lifecycle” tab. Click “add a rule”, select “delete object”, then select “age” and enter “1” day. This will delete any data that is over 1 day old.</p></li>
@@ -438,8 +442,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-storage">Local storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-storage">Cloud storage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-intermediate-data">Deleting intermediate data</a></li>
 </ul>
   </nav></div>
 

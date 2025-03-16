@@ -28,18 +28,21 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=02e281f0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=426fa013"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/executors';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -150,22 +153,26 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">For users</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../getting-started/index.html">Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/why-cubed.html">Why Cubed?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/installation.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/demo.html">Demo</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">User Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Executors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory.html">Memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reliability.html">Reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scaling.html">Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnostics.html">Diagnostics</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference external" href="https://cubed-dev.github.io/cubed/cubed-intro.slides.html">Intro slides</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/tomwhite/cubed/tree/main/examples/README.md">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/how-to-run.html">How to run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/basic-array-ops.html">Basic array operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/zarr.html">Zarr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/xarray.html">Xarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/rechunking.html">Rechunking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/pangeo.html">Pangeo</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.Array.html">cubed.Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.Array.compute.html">cubed.Array.compute</a></li>
@@ -180,6 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.apply_gufunc.html">cubed.apply_gufunc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.map_blocks.html">cubed.map_blocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.map_overlap.html">cubed.map_overlap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.rechunk.html">cubed.rechunk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.nanmean.html">cubed.nanmean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.nansum.html">cubed.nansum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.pad.html">cubed.pad</a></li>
@@ -188,16 +196,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.Spec.html">cubed.Spec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.TaskEndEvent.html">cubed.TaskEndEvent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.measure_reserved_mem.html">cubed.measure_reserved_mem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.local.SingleThreadedExecutor.html">cubed.runtime.executors.local.SingleThreadedExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.local.ThreadsExecutor.html">cubed.runtime.executors.local.ThreadsExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.local.ProcessesExecutor.html">cubed.runtime.executors.local.ProcessesExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.beam.BeamExecutor.html">cubed.runtime.executors.beam.BeamExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.lithops.LithopsExecutor.html">cubed.runtime.executors.lithops.LithopsExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.modal.ModalExecutor.html">cubed.runtime.executors.modal.ModalExecutor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../array-api.html">Python Array API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../why-cubed.html">Why Cubed?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../related-projects.html">Related Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../articles.html">Articles and Presentations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">For developers</span></p>
 <ul class="nav bd-sidenav">
@@ -353,7 +358,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-python-executor">Local Python executor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-single-machine-executors">Local single-machine executors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-cloud-service-executor-should-i-use">Which cloud service executor should I use?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-an-executor">Specifying an executor</a></li>
 </ul>
@@ -371,22 +376,25 @@ document.write(`
 <h1>Executors<a class="headerlink" href="#executors" title="Link to this heading">#</a></h1>
 <p>Cubed arrays are backed by Zarr arrays, and every chunk in the Zarr array is computed by a task running on a worker, which may be a local or remote process.</p>
 <p>Cubed provides a variety of executors for running the tasks in a computation, which are discussed below. Executors are also sometimes referred to as runtimes.</p>
-<section id="local-python-executor">
-<h2>Local Python executor<a class="headerlink" href="#local-python-executor" title="Link to this heading">#</a></h2>
-<p>If you don’t specify an executor then the local in-process Python executor is used. This is a very simple, single-threaded executor (called <code class="xref py py-class docutils literal notranslate"><span class="pre">PythonDagExecutor</span></code>) that is intended for testing on small amounts of data before running larger computations using a cloud service.</p>
+<section id="local-single-machine-executors">
+<h2>Local single-machine executors<a class="headerlink" href="#local-single-machine-executors" title="Link to this heading">#</a></h2>
+<p>If you don’t specify an executor then the local in-process multi-threaded Python executor is used by default. This is called the <code class="docutils literal notranslate"><span class="pre">threads</span></code> executor. It doesn’t require any set up so it is useful for quickly getting started and running on datasets that don’t fit in memory, but that can fit on a single machine’s disk.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">processes</span></code> executor also runs on a single machine, and uses all the cores on the machine. However, unlike the <code class="docutils literal notranslate"><span class="pre">threads</span></code> executor, each task runs in a separate process, which avoids GIL contention, but adds some overhead in process startup time and communication. Typically, running using <code class="docutils literal notranslate"><span class="pre">processes</span></code> is more performant than <code class="docutils literal notranslate"><span class="pre">threads</span></code>, but it is worth trying both on your workload to see which is best.</p>
+<p>There is a third local executor called <code class="docutils literal notranslate"><span class="pre">single-threaded</span></code> that runs tasks sequentially in a single thread, and is intended for testing on small amounts of data.</p>
 </section>
 <section id="which-cloud-service-executor-should-i-use">
-<h2>Which cloud service executor should I use?<a class="headerlink" href="#which-cloud-service-executor-should-i-use" title="Link to this heading">#</a></h2>
+<span id="which-cloud-service"></span><h2>Which cloud service executor should I use?<a class="headerlink" href="#which-cloud-service-executor-should-i-use" title="Link to this heading">#</a></h2>
+<p>When it comes to scaling out, there are a number of executors that work in the cloud.</p>
 <p><a class="reference external" href="https://lithops-cloud.github.io/"><strong>Lithops</strong></a> is the executor we recommend for most users, since it has had the most testing so far (~1000 workers).
 If your data is in Amazon S3 then use Lithops with AWS Lambda, and if it’s in GCS use Lithops with Google Cloud Functions. You have to build a runtime environment as a part of the setting up process.</p>
-<p><a class="reference external" href="https://modal.com/"><strong>Modal</strong></a> is very easy to get started with because it handles building a runtime environment for you automatically (note that it requires that you <a class="reference external" href="https://modal.com/signup">sign up</a> for a free account). <strong>At the time of writing, Modal does not guarantee that functions run in any particular cloud region, so it is not currently recommended that you run large computations since excessive data transfer fees are likely.</strong></p>
+<p><a class="reference external" href="https://modal.com/"><strong>Modal</strong></a> is very easy to get started with because it automatically builds a runtime environment in a matter of seconds (note that it requires that you <a class="reference external" href="https://modal.com/signup">sign up</a> for a free account). It has been tested with ~100 workers.</p>
 <p><a class="reference external" href="https://www.coiled.io/"><strong>Coiled</strong></a> is also easy to get started with (<a class="reference external" href="https://cloud.coiled.io/signup">sign up</a>). It uses <a class="reference external" href="https://docs.coiled.io/user_guide/usage/functions/index.html">Coiled Functions</a> and has a 1-2 minute overhead to start a cluster.</p>
 <p><a class="reference external" href="https://cloud.google.com/dataflow"><strong>Google Cloud Dataflow</strong></a> is relatively straightforward to get started with. It has the highest overhead for worker startup (minutes compared to seconds for Modal or Lithops), and although it has only been tested with ~20 workers, it is a mature service and therefore should be reliable for much larger computations.</p>
 </section>
 <section id="specifying-an-executor">
 <h2>Specifying an executor<a class="headerlink" href="#specifying-an-executor" title="Link to this heading">#</a></h2>
 <p>An executor may be specified as a part of the <a class="reference internal" href="../generated/cubed.Spec.html#cubed.Spec" title="cubed.Spec"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spec</span></code></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cubed</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cubed</span>
 
 <span class="n">spec</span> <span class="o">=</span> <span class="n">cubed</span><span class="o">.</span><span class="n">Spec</span><span class="p">(</span>
     <span class="n">work_dir</span><span class="o">=</span><span class="s2">&quot;s3://cubed-tomwhite-temp&quot;</span><span class="p">,</span>
@@ -395,7 +403,7 @@ If your data is in Amazon S3 then use Lithops with AWS Lambda, and if it’s in 
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>A default spec may also be configured using a YAML file. The <a class="reference external" href="https://github.com/tomwhite/cubed/tree/main/examples/README.md">examples</a> show this in more detail for all of the cloud services described above.</p>
+<p>A default spec may also be configured using a YAML file. The <a class="reference internal" href="../examples/how-to-run.html#cloud-set-up"><span class="std std-ref">examples</span></a> show this in more detail for all of the executors described above.</p>
 </section>
 </section>
 
@@ -444,7 +452,7 @@ If your data is in Amazon S3 then use Lithops with AWS Lambda, and if it’s in 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-python-executor">Local Python executor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-single-machine-executors">Local single-machine executors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-cloud-service-executor-should-i-use">Which cloud service executor should I use?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-an-executor">Specifying an executor</a></li>
 </ul>

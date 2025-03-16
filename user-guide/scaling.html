@@ -28,23 +28,26 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=02e281f0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=426fa013"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/scaling';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API Reference" href="../api.html" />
-    <link rel="prev" title="Reliability" href="reliability.html" />
+    <link rel="next" title="Diagnostics" href="diagnostics.html" />
+    <link rel="prev" title="Optimization" href="optimization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -150,22 +153,26 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">For users</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../getting-started/index.html">Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/why-cubed.html">Why Cubed?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/installation.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting-started/demo.html">Demo</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">User Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="executors.html">Executors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory.html">Memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reliability.html">Reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnostics.html">Diagnostics</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference external" href="https://cubed-dev.github.io/cubed/cubed-intro.slides.html">Intro slides</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/tomwhite/cubed/tree/main/examples/README.md">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/how-to-run.html">How to run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/basic-array-ops.html">Basic array operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/zarr.html">Zarr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/xarray.html">Xarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/rechunking.html">Rechunking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/pangeo.html">Pangeo</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.Array.html">cubed.Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.Array.compute.html">cubed.Array.compute</a></li>
@@ -180,6 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.apply_gufunc.html">cubed.apply_gufunc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.map_blocks.html">cubed.map_blocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.map_overlap.html">cubed.map_overlap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.rechunk.html">cubed.rechunk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.nanmean.html">cubed.nanmean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.nansum.html">cubed.nansum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.pad.html">cubed.pad</a></li>
@@ -188,16 +196,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.Spec.html">cubed.Spec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.TaskEndEvent.html">cubed.TaskEndEvent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generated/cubed.measure_reserved_mem.html">cubed.measure_reserved_mem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.local.SingleThreadedExecutor.html">cubed.runtime.executors.local.SingleThreadedExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.local.ThreadsExecutor.html">cubed.runtime.executors.local.ThreadsExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.local.ProcessesExecutor.html">cubed.runtime.executors.local.ProcessesExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.beam.BeamExecutor.html">cubed.runtime.executors.beam.BeamExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.lithops.LithopsExecutor.html">cubed.runtime.executors.lithops.LithopsExecutor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/cubed.runtime.executors.modal.ModalExecutor.html">cubed.runtime.executors.modal.ModalExecutor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../array-api.html">Python Array API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../why-cubed.html">Why Cubed?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../related-projects.html">Related Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../articles.html">Articles and Presentations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">For developers</span></p>
 <ul class="nav bd-sidenav">
@@ -365,12 +370,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#different-cloud-providers">Different Cloud Providers</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosing-performance">Diagnosing Performance</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimized-plan">Optimized Plan</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#history-callback">History Callback</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timeline-visualization-callback">Timeline Visualization Callback</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosing-performance">Diagnosing Performance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips</a></li>
 </ul>
             </nav>
@@ -452,19 +452,7 @@ Some other executors such as Beam will first convert the Cubed Plan to a differe
 </section>
 <section id="diagnosing-performance">
 <h2>Diagnosing Performance<a class="headerlink" href="#diagnosing-performance" title="Link to this heading">#</a></h2>
-<p>To understand how your computation could perform better you first need to diagnose the source of any problems.</p>
-<section id="optimized-plan">
-<h3>Optimized Plan<a class="headerlink" href="#optimized-plan" title="Link to this heading">#</a></h3>
-<p>Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">Plan.visualize()</span></code> to view the optimized plan. This allows you to see the number of steps involved in your calculation, the number of tasks in each step, and overall.</p>
-</section>
-<section id="history-callback">
-<h3>History Callback<a class="headerlink" href="#history-callback" title="Link to this heading">#</a></h3>
-<p>The history callback function can help determine how much time was spent in worker startup, as well as how much stragglers affected the overall speed.</p>
-</section>
-<section id="timeline-visualization-callback">
-<h3>Timeline Visualization Callback<a class="headerlink" href="#timeline-visualization-callback" title="Link to this heading">#</a></h3>
-<p>A timeline visualization callback can provide a visual representation of the above points. Ideally, we want vertical lines on this plot, which would represent perfect horizontal scaling.</p>
-</section>
+<p>See <a class="reference internal" href="diagnostics.html"><span class="std std-doc">Diagnostics</span></a>.</p>
 </section>
 <section id="tips">
 <h2>Tips<a class="headerlink" href="#tips" title="Link to this heading">#</a></h2>
@@ -490,20 +478,20 @@ Some other executors such as Beam will first convert the Cubed Plan to a differe
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="reliability.html"
+       href="optimization.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Reliability</p>
+        <p class="prev-next-title">Optimization</p>
       </div>
     </a>
     <a class="right-next"
-       href="../api.html"
+       href="diagnostics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API Reference</p>
+        <p class="prev-next-title">Diagnostics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -535,12 +523,7 @@ Some other executors such as Beam will first convert the Cubed Plan to a differe
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#different-cloud-providers">Different Cloud Providers</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosing-performance">Diagnosing Performance</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimized-plan">Optimized Plan</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#history-callback">History Callback</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timeline-visualization-callback">Timeline Visualization Callback</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosing-performance">Diagnosing Performance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips</a></li>
 </ul>
   </nav></div>
