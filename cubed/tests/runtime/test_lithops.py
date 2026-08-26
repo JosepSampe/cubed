@@ -1,5 +1,4 @@
 import platform
-import sys
 from functools import partial
 
 import pytest
@@ -14,40 +13,19 @@ from lithops.retries import RetryingFunctionExecutor
 from cubed.runtime.executors.lithops import map_unordered
 
 
-@pytest.fixture(scope="module")
-def lithops_executor():
-    config = {
-        "lithops": {
-            "backend": "localhost",
-            "storage": "localhost",
-            "include_modules": None,
-        },
-        "localhost": {"runtime": sys.executable},
-    }
-    with RetryingFunctionExecutor(LocalhostExecutor(config=config)) as executor:
-        yield executor
-
-
-def run_test(
-    lithops_executor,
-    function,
-    input,
-    retries,
-    timeout=10,
-    use_backups=False,
-):
+def run_test(function, input, retries, timeout=10, use_backups=False):
     outputs = set()
-    for output in map_unordered(
-        lithops_executor,
-        [function],
-        [input],
-        ["group0"],
-        timeout=timeout,
-        retries=retries,
-        use_backups=use_backups,
-        wait_dur_sec=0.1,
-    ):
-        outputs.add(output)
+    with RetryingFunctionExecutor(LocalhostExecutor()) as executor:
+        for output in map_unordered(
+            executor,
+            [function],
+            [input],
+            ["group0"],
+            timeout=timeout,
+            retries=retries,
+            use_backups=use_backups,
+        ):
+            outputs.add(output)
     return outputs
 
 
@@ -61,15 +39,14 @@ def run_test(
         ({0: [-1], 1: [-1], 2: [-1]}, 3, 2),
         # first two invocations fail
         ({0: [-1, -1], 1: [-1, -1], 2: [-1, -1]}, 3, 2),
+        # first input sleeps once
+        ({0: [20]}, 3, 2),
     ],
 )
 # fmt: on
 @pytest.mark.parametrize("use_backups", [False, True])
-def test_success(
-    tmp_path, lithops_executor, timing_map, n_tasks, retries, use_backups
-):
+def test_success(tmp_path, timing_map, n_tasks, retries, use_backups):
     outputs = run_test(
-        lithops_executor,
         function=partial(deterministic_failure, tmp_path, timing_map),
         input=range(n_tasks),
         retries=retries,
@@ -91,12 +68,9 @@ def test_success(
 )
 # fmt: on
 @pytest.mark.parametrize("use_backups", [False, True])
-def test_failure(
-    tmp_path, lithops_executor, timing_map, n_tasks, retries, use_backups
-):
+def test_failure(tmp_path, timing_map, n_tasks, retries, use_backups):
     with pytest.raises(RuntimeError):
         run_test(
-            lithops_executor,
             function=partial(deterministic_failure, tmp_path, timing_map),
             input=range(n_tasks),
             retries=retries,
@@ -115,9 +89,12 @@ def test_failure(
 )
 # fmt: on
 @pytest.mark.skipif(platform.system() == "Windows", reason="does not run on windows")
-def test_stragglers(tmp_path, lithops_executor, timing_map, n_tasks, retries):
+def test_stragglers(tmp_path, timing_map, n_tasks, retries):
+    # TODO: run a test like this using a cloud executor
+    # Reason: this test passes, but lithops local mode only runs one job at a time,
+    # so it actually waits for the first job to finish before running the second one.
+
     outputs = run_test(
-        lithops_executor,
         function=partial(deterministic_failure, tmp_path, timing_map),
         input=range(n_tasks),
         retries=retries,
