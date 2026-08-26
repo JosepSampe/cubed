@@ -18,10 +18,7 @@ LITHOPS_LOCAL_CONFIG = {
         "monitoring_interval": 0.1,
         "include_modules": None,
     },
-    "localhost": {
-        "version": 1,
-        "worker_processes": 1,
-    },
+    "localhost": {"version": 1},
 }
 
 ALL_EXECUTORS = [create_executor("single-threaded")]
