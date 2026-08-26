@@ -58,6 +58,7 @@ These are functions that have not (yet) been included in the Python Array API St
     :nosignatures:
     :toctree: generated/
 
+    isin
     nanmean
     nansum
     pad
@@ -84,3 +85,4 @@ Runtime
     Spec
     TaskEndEvent
     measure_reserved_mem
+    raise_if_computes

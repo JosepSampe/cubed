@@ -130,9 +130,9 @@ These properties can be passed directly to the {py:class}`Spec <cubed.Spec>` con
 | `work_dir`         | `None`            | The directory path (specified as an fsspec URL) used for storing intermediate data. If not set, the user's temporary directory is used. |
 | `allowed_mem`      | `"2GB"`           | The total memory available to a worker for running a task. This includes any `reserved_mem` that has been set.                          |
 | `reserved_mem`     | `"100MB"`         | The memory reserved on a worker for non-data use when running a task                                                                    |
-| `executor_name`    | `"threads"`       | The executor for running computations. One of `"single-threaded"`, `"threads"`, `"processes"`, `"beam"`, `"coiled"`, `"dask"`, `"lithops"`, `"modal"`.  |
+| `executor_name`    | `"threads"`       | The executor for running computations. One of `"single-threaded"`, `"threads"`, `"processes"`, `"coiled"`, `"dask"`, `"lithops"`, `"modal"`.  |
 | `executor_options` | `None`            | Options to pass to the executor on construction. See below for possible options for each executor.                                      |
-| `zarr_compressor`  | `"default"`| The compressor used by Zarr for intermediate data. If not specified, or set to `"default"`, Zarr will use the default Blosc compressor. If set to `None`, compression is disabled, which can be a good option when using local storage. Use a dictionary (or nested YAML) to configure arbitrary compression using Numcodecs. |
+| `zarr_compressor`  | `"auto"`| The compressor used by Zarr for intermediate data. If not specified, or set to `"auto"`, Zarr will use the default Blosc compressor. If set to `None`, compression is disabled, which can be a good option when using local storage. Use a dictionary (or nested YAML) to configure arbitrary compression. |
 
 ### Executor options
 
@@ -165,14 +165,9 @@ since it is deliberately designed not to have anything except the most basic fea
 | `batch_size`                 | `None`  | Number of input tasks to submit to be run in parallel. `None` means don't batch.                                                           |
 | `compute_arrays_in_parallel` | `False` | Whether arrays are computed one at a time or in parallel.                                                                                  |
 | `max_workers`                | `None`  | The maximum number of workers to use in the `ProcessPoolExecutor`. Defaults to number of CPU cores.                                        |
-| `max_tasks_per_child`        | `None`  | The number of tasks to run in each child process. See the Python documentation for `concurrent.futures.ProcessPoolExecutor`. (Python 3.11) |
+| `max_tasks_per_child`        | `None`  | The number of tasks to run in each child process. See the Python documentation for `concurrent.futures.ProcessPoolExecutor`. |
 
 Note that `retries` is not currently supported for the `processes` executor.
-
-#### `beam`
-
-The `beam` executor doesn't currently expose any configuration options.
-When running on Google Cloud Dataflow, [four retry attempts](https://cloud.google.com/dataflow/docs/pipeline-lifecycle#error_and_exception_handling) are made for failing tasks.
 
 #### `coiled`
 
@@ -212,6 +207,7 @@ Note that `batch_size` is not currently supported for Lithops.
 |------------------------------|---------|-------------------------------------------------------------------------------------|
 | `cloud`                      | `"aws"` | The cloud to run on. One of `"aws"` or `"gcp"`.                                     |
 | `region`                     | N/A     | The cloud region to run in. This must be set to match the region of your cloud store to avoid data transfer fees. See Modal's [Region selection](https://modal.com/docs/guide/region-selection) page for possible values. |
+| `secret`                     | `"my-aws-secret"` for AWS, `"my-googlecloud-secret"` for Google Cloud | The name of the [Modal secret](https://modal.com/docs/guide/secrets) to use.        |
 | `retries`                    | 2       | The number of times to retry a task if it fails.                                    |
 | `timeout`                    | 180     | Tasks that take longer than the timeout will be automatically killed and retried.   |
 | `enable_output`              | False   | Print Modal output to stdout and stderr things for debugging.                      |
@@ -221,7 +217,7 @@ Note that `batch_size` is not currently supported for Lithops.
 
 ## Debugging
 
-You can use Donfig's `pprint` method if you want to check which configuration settings are in effect when you code is run:
+You can use [Donfig](https://donfig.readthedocs.io/en/latest/)'s `pprint` method if you want to check which configuration settings are in effect when you code is run:
 
 ```python
 from cubed import config

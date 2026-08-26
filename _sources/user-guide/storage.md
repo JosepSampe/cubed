@@ -8,7 +8,7 @@ Cubed will delete intermediate data only when the main Python process running th
 
 ## Cloud storage
 
-When using a cloud service, the working directory should be set to a cloud storage directory in the same cloud region that the executor runtimes are in. In this case the directory is specified as a [`fsspec`](https://filesystem-spec.readthedocs.io/en/latest/) URL, such as `s3://cubed-tomwhite-temp`. This is how you would set it using a {py:class}`Spec <cubed.Spec>` object:
+When using a cloud service, the working directory should be set to a cloud storage directory in the same cloud region that the executor runtimes are in. In this case the directory is specified as a [`fsspec`](https://filesystem-spec.readthedocs.io/en/latest/) or [`obstore`](https://developmentseed.org/obstore/latest/) URL, such as `s3://cubed-tomwhite-temp`. This is how you would set it using a {py:class}`Spec <cubed.Spec>` object:
 
 ```python
 import cubed
@@ -27,3 +27,21 @@ To set up a lifecycle rule:
 * For **AWS S3**, follow [these instructions](https://lepczynski.it/en/aws_en/automatically-delete-old-files-from-aws-s3/).
 
 If you use this approach then be sure to store persistent data in a separate bucket to the one used for intermediate data.
+
+## Zarr storage libraries
+
+Cubed uses the [`zarr-python`](https://github.com/zarr-developers/zarr-python) library for reading and writing intermediate Zarr data, but it is possible to override this and use another Zarr library by setting the `CUBED_STORAGE_NAME` environment variable.
+
+To use the [`zarrs-python`](https://github.com/zarrs/zarrs-python) Rust implementation, install the `zarrs` Python package and set the `CUBED_STORAGE_NAME` environment variable to `zarrs-python`:
+
+```shell
+export CUBED_STORAGE_NAME=zarrs-python
+```
+
+For `zarr-python`, if [`obstore`](https://developmentseed.org/obstore/latest/) is installed it will be used by default for cloud object stores. To enable it for other stores (e.g. the local filesystem), set the `storage_options.use_obstore` [configuration](../configuration.md) option to `True`, as illustrated in this YAML file:
+
+```yaml
+spec:
+  storage_options:
+    use_obstore: True
+```

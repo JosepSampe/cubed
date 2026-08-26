@@ -16,68 +16,69 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="_static/documentation_options.js?v=8d6197a2"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/documentation_options.js?v=f81fe955"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'configuration';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Why Cubed?" href="why-cubed.html" />
     <link rel="prev" title="Python Array API" href="array-api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="abfeee6
+" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -85,7 +86,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -93,15 +93,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -110,7 +154,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -134,21 +179,23 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/cubed-logo.svg" class="logo__image only-light" alt="Cubed - Home"/>
+    <img src="_static/cubed-logo.svg" class="logo__image only-dark pst-js-only" alt="Cubed - Home"/>
   
-    <p class="title logo__title">Cubed</p>
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">For users</span></p>
@@ -162,6 +209,7 @@
 <li class="toctree-l2"><a class="reference internal" href="user-guide/optimization.html">Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-guide/scaling.html">Scaling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-guide/diagnostics.html">Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/gpus.html">GPU Support</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -189,6 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/cubed.map_blocks.html">cubed.map_blocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/cubed.map_overlap.html">cubed.map_overlap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/cubed.rechunk.html">cubed.rechunk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/cubed.isin.html">cubed.isin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/cubed.nanmean.html">cubed.nanmean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/cubed.nansum.html">cubed.nansum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/cubed.pad.html">cubed.pad</a></li>
@@ -197,6 +246,7 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/cubed.Spec.html">cubed.Spec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/cubed.TaskEndEvent.html">cubed.TaskEndEvent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/cubed.measure_reserved_mem.html">cubed.measure_reserved_mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/cubed.raise_if_computes.html">cubed.raise_if_computes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="array-api.html">Python Array API</a></li>
@@ -219,9 +269,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -318,25 +373,24 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
   </button>
-`);
-</script>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -358,7 +412,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specification">Specification</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spec-object"><code class="docutils literal notranslate"><span class="pre">Spec</span></code> object</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubed-config-object"><code class="docutils literal notranslate"><span class="pre">cubed.config</span></code> object</a></li>
@@ -372,7 +426,6 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#single-threaded"><code class="docutils literal notranslate"><span class="pre">single-threaded</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#threads"><code class="docutils literal notranslate"><span class="pre">threads</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#processes"><code class="docutils literal notranslate"><span class="pre">processes</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#beam"><code class="docutils literal notranslate"><span class="pre">beam</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coiled"><code class="docutils literal notranslate"><span class="pre">coiled</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dask"><code class="docutils literal notranslate"><span class="pre">dask</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops"><code class="docutils literal notranslate"><span class="pre">lithops</span></code></a></li>
@@ -413,10 +466,10 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cubed</span>
 
 <span class="n">spec</span> <span class="o">=</span> <span class="n">cubed</span><span class="o">.</span><span class="n">Spec</span><span class="p">(</span>
-    <span class="n">work_dir</span><span class="o">=</span><span class="s2">&quot;s3://cubed-tomwhite-temp&quot;</span><span class="p">,</span>
-    <span class="n">allowed_mem</span><span class="o">=</span><span class="s2">&quot;2GB&quot;</span><span class="p">,</span>
-    <span class="n">executor_name</span><span class="o">=</span><span class="s2">&quot;lithops&quot;</span><span class="p">,</span>
-    <span class="n">executor_options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">use_backups</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">runtime</span><span class="o">=</span><span class="s2">&quot;cubed-runtime&quot;</span><span class="p">,</span> <span class="n">runtime_memory</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+    <span class="n">work_dir</span><span class="o">=</span><span class="s2">"s3://cubed-tomwhite-temp"</span><span class="p">,</span>
+    <span class="n">allowed_mem</span><span class="o">=</span><span class="s2">"2GB"</span><span class="p">,</span>
+    <span class="n">executor_name</span><span class="o">=</span><span class="s2">"lithops"</span><span class="p">,</span>
+    <span class="n">executor_options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">use_backups</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">runtime</span><span class="o">=</span><span class="s2">"cubed-runtime"</span><span class="p">,</span> <span class="n">runtime_memory</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -436,12 +489,12 @@ document.write(`
 <p>The following sets the configuration globally:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cubed</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
 <span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">({</span>
-  <span class="s2">&quot;spec.work_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;s3://cubed-tomwhite-temp&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;spec.allowed_mem&quot;</span><span class="p">:</span> <span class="s2">&quot;2GB&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;spec.executor_name&quot;</span><span class="p">:</span> <span class="s2">&quot;lithops&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;spec.executor_options.use_backups&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-  <span class="s2">&quot;spec.executor_options.runtime&quot;</span><span class="p">:</span> <span class="s2">&quot;cubed-runtime&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;spec.executor_options.runtime_memory&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+  <span class="s2">"spec.work_dir"</span><span class="p">:</span> <span class="s2">"s3://cubed-tomwhite-temp"</span><span class="p">,</span>
+  <span class="s2">"spec.allowed_mem"</span><span class="p">:</span> <span class="s2">"2GB"</span><span class="p">,</span>
+  <span class="s2">"spec.executor_name"</span><span class="p">:</span> <span class="s2">"lithops"</span><span class="p">,</span>
+  <span class="s2">"spec.executor_options.use_backups"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+  <span class="s2">"spec.executor_options.runtime"</span><span class="p">:</span> <span class="s2">"cubed-runtime"</span><span class="p">,</span>
+  <span class="s2">"spec.executor_options.runtime_memory"</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
 <span class="p">})</span>
 </pre></div>
 </div>
@@ -450,7 +503,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cubed</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">cubed.array_api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xp</span>
 
-<span class="k">with</span> <span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s2">&quot;spec.executor_name&quot;</span><span class="p">:</span> <span class="s2">&quot;single-threaded&quot;</span><span class="p">}):</span>
+<span class="k">with</span> <span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s2">"spec.executor_name"</span><span class="p">:</span> <span class="s2">"single-threaded"</span><span class="p">}):</span>
   <span class="n">a</span> <span class="o">=</span> <span class="n">cubed</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">50000</span><span class="p">),</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">))</span>
   <span class="n">b</span> <span class="o">=</span> <span class="n">cubed</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">50000</span><span class="p">),</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">))</span>
   <span class="n">c</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -463,12 +516,12 @@ document.write(`
 It’s a useful way to package up the settings for running using a particular executor, so it can be reused.
 The Cubed <a class="reference internal" href="examples/index.html"><span class="std std-doc">examples</span></a> use YAML files for this reason.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">work_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;s3://cubed-$USER-temp&quot;</span>
-<span class="w">  </span><span class="nt">allowed_mem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2GB&quot;</span>
-<span class="w">  </span><span class="nt">executor_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lithops&quot;</span>
+<span class="w">  </span><span class="nt">work_dir</span><span class="p">:</span><span class="w"> </span><span class="s">"s3://cubed-$USER-temp"</span>
+<span class="w">  </span><span class="nt">allowed_mem</span><span class="p">:</span><span class="w"> </span><span class="s">"2GB"</span>
+<span class="w">  </span><span class="nt">executor_name</span><span class="p">:</span><span class="w"> </span><span class="s">"lithops"</span>
 <span class="w">  </span><span class="nt">executor_options</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">use_backups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
-<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cubed-runtime&quot;</span>
+<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="s">"cubed-runtime"</span>
 <span class="w">    </span><span class="nt">runtime_memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
 </pre></div>
 </div>
@@ -482,7 +535,7 @@ The Cubed <a class="reference internal" href="examples/index.html"><span class="
 <section id="environment-variables">
 <h3>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h3>
 <p>You can also set <a class="reference external" href="https://donfig.readthedocs.io/en/latest/configuration.html#environment-variables">Donfig-style environment variables</a> to set individual properties. Notice how double underscores are used to indicate nesting.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CUBED_SPEC__WORK_DIR</span><span class="o">=</span><span class="s1">&#39;s3://cubed-$USER-temp&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CUBED_SPEC__WORK_DIR</span><span class="o">=</span><span class="s1">'s3://cubed-$USER-temp'</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">CUBED_SPEC__ALLOWED_MEM</span><span class="o">=</span>2GB
 <span class="nb">export</span><span class="w"> </span><span class="nv">CUBED_SPEC__EXECUTOR_NAME</span><span class="o">=</span>lithops
 <span class="nb">export</span><span class="w"> </span><span class="nv">CUBED_SPEC__EXECUTOR_OPTIONS__USE_BACKUPS</span><span class="o">=</span>False
@@ -523,15 +576,15 @@ The Cubed <a class="reference internal" href="examples/index.html"><span class="
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">executor_name</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;threads&quot;</span></code></p></td>
-<td><p>The executor for running computations. One of <code class="docutils literal notranslate"><span class="pre">&quot;single-threaded&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;threads&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;processes&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;beam&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;coiled&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;dask&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;lithops&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;modal&quot;</span></code>.</p></td>
+<td><p>The executor for running computations. One of <code class="docutils literal notranslate"><span class="pre">&quot;single-threaded&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;threads&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;processes&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;coiled&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;dask&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;lithops&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;modal&quot;</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">executor_options</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
 <td><p>Options to pass to the executor on construction. See below for possible options for each executor.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">zarr_compressor</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code></p></td>
-<td><p>The compressor used by Zarr for intermediate data. If not specified, or set to <code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code>, Zarr will use the default Blosc compressor. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, compression is disabled, which can be a good option when using local storage. Use a dictionary (or nested YAML) to configure arbitrary compression using Numcodecs.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code></p></td>
+<td><p>The compressor used by Zarr for intermediate data. If not specified, or set to <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code>, Zarr will use the default Blosc compressor. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, compression is disabled, which can be a good option when using local storage. Use a dictionary (or nested YAML) to configure arbitrary compression.</p></td>
 </tr>
 </tbody>
 </table>
@@ -608,17 +661,12 @@ since it is deliberately designed not to have anything except the most basic fea
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_tasks_per_child</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
-<td><p>The number of tasks to run in each child process. See the Python documentation for <code class="docutils literal notranslate"><span class="pre">concurrent.futures.ProcessPoolExecutor</span></code>. (Python 3.11)</p></td>
+<td><p>The number of tasks to run in each child process. See the Python documentation for <code class="docutils literal notranslate"><span class="pre">concurrent.futures.ProcessPoolExecutor</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">retries</span></code> is not currently supported for the <code class="docutils literal notranslate"><span class="pre">processes</span></code> executor.</p>
-</section>
-<section id="beam">
-<h4><code class="docutils literal notranslate"><span class="pre">beam</span></code><a class="headerlink" href="#beam" title="Link to this heading">#</a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">beam</span></code> executor doesn’t currently expose any configuration options.
-When running on Google Cloud Dataflow, <a class="reference external" href="https://cloud.google.com/dataflow/docs/pipeline-lifecycle#error_and_exception_handling">four retry attempts</a> are made for failing tasks.</p>
 </section>
 <section id="coiled">
 <h4><code class="docutils literal notranslate"><span class="pre">coiled</span></code><a class="headerlink" href="#coiled" title="Link to this heading">#</a></h4>
@@ -727,27 +775,31 @@ When running on Google Cloud Dataflow, <a class="reference external" href="https
 <td><p>N/A</p></td>
 <td><p>The cloud region to run in. This must be set to match the region of your cloud store to avoid data transfer fees. See Modal’s <a class="reference external" href="https://modal.com/docs/guide/region-selection">Region selection</a> page for possible values.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">retries</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">secret</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;my-aws-secret&quot;</span></code> for AWS, <code class="docutils literal notranslate"><span class="pre">&quot;my-googlecloud-secret&quot;</span></code> for Google Cloud</p></td>
+<td><p>The name of the <a class="reference external" href="https://modal.com/docs/guide/secrets">Modal secret</a> to use.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">retries</span></code></p></td>
 <td><p>2</p></td>
 <td><p>The number of times to retry a task if it fails.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code></p></td>
 <td><p>180</p></td>
 <td><p>Tasks that take longer than the timeout will be automatically killed and retried.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enable_output</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">enable_output</span></code></p></td>
 <td><p>False</p></td>
 <td><p>Print Modal output to stdout and stderr things for debugging.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">use_backups</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">use_backups</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
 <td><p>Whether to use backup tasks for mitigating stragglers.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">batch_size</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">batch_size</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
 <td><p>Number of input tasks to submit to be run in parallel. The default is not to batch.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">compute_arrays_in_parallel</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compute_arrays_in_parallel</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 <td><p>Whether arrays are computed one at a time or in parallel.</p></td>
 </tr>
@@ -759,7 +811,7 @@ When running on Google Cloud Dataflow, <a class="reference external" href="https
 </section>
 <section id="debugging">
 <h2>Debugging<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h2>
-<p>You can use Donfig’s <code class="docutils literal notranslate"><span class="pre">pprint</span></code> method if you want to check which configuration settings are in effect when you code is run:</p>
+<p>You can use <a class="reference external" href="https://donfig.readthedocs.io/en/latest/">Donfig</a>’s <code class="docutils literal notranslate"><span class="pre">pprint</span></code> method if you want to check which configuration settings are in effect when you code is run:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cubed</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
 <span class="n">config</span><span class="o">.</span><span class="n">pprint</span><span class="p">()</span>
 </pre></div>
@@ -803,15 +855,17 @@ When running on Google Cloud Dataflow, <a class="reference external" href="https
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specification">Specification</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spec-object"><code class="docutils literal notranslate"><span class="pre">Spec</span></code> object</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubed-config-object"><code class="docutils literal notranslate"><span class="pre">cubed.config</span></code> object</a></li>
@@ -825,7 +879,6 @@ When running on Google Cloud Dataflow, <a class="reference external" href="https
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#single-threaded"><code class="docutils literal notranslate"><span class="pre">single-threaded</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#threads"><code class="docutils literal notranslate"><span class="pre">threads</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#processes"><code class="docutils literal notranslate"><span class="pre">processes</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#beam"><code class="docutils literal notranslate"><span class="pre">beam</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coiled"><code class="docutils literal notranslate"><span class="pre">coiled</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dask"><code class="docutils literal notranslate"><span class="pre">dask</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops"><code class="docutils literal notranslate"><span class="pre">lithops</span></code></a></li>
@@ -849,7 +902,7 @@ When running on Google Cloud Dataflow, <a class="reference external" href="https
   <div class="footer-item">
     
 <p class="component-author">
-By Tom White
+By Cubed contributors
 </p>
 
   </div>
@@ -859,7 +912,7 @@ By Tom White
 
   <p class="copyright">
     
-      © Copyright 2022-2024, Tom White.
+      © Copyright 2022-2025.
       <br/>
     
   </p>
@@ -883,8 +936,8 @@ By Tom White
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
   </footer>

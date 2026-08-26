@@ -15,6 +15,7 @@
    
       ~Array.__init__
       ~Array.compute
+      ~Array.plan
       ~Array.rechunk
       ~Array.to_svg
       ~Array.visualize
@@ -28,6 +29,8 @@
    .. autosummary::
    
       ~Array.T
+      ~Array.blocks
+      ~Array.cbytes
       ~Array.chunkmem
       ~Array.chunks
       ~Array.chunksize
@@ -36,12 +39,11 @@
       ~Array.itemsize
       ~Array.mT
       ~Array.nbytes
+      ~Array.nchunks
       ~Array.ndim
       ~Array.npartitions
       ~Array.numblocks
       ~Array.shape
       ~Array.size
-      ~Array.zarray
-      ~Array.zarray_maybe_lazy
    
    

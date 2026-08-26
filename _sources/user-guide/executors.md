@@ -2,7 +2,7 @@
 
 Cubed arrays are backed by Zarr arrays, and every chunk in the Zarr array is computed by a task running on a worker, which may be a local or remote process.
 
-Cubed provides a variety of executors for running the tasks in a computation, which are discussed below. Executors are also sometimes referred to as runtimes.
+Cubed provides a variety of executors for running the tasks in a computation, which are discussed below. Executors are also sometimes referred to as _runtimes_.
 
 ## Local single-machine executors
 
@@ -26,7 +26,9 @@ If your data is in Amazon S3 then use Lithops with AWS Lambda, and if it's in GC
 
 [**Google Cloud Dataflow**](https://cloud.google.com/dataflow) is relatively straightforward to get started with. It has the highest overhead for worker startup (minutes compared to seconds for Modal or Lithops), and although it has only been tested with ~20 workers, it is a mature service and therefore should be reliable for much larger computations.
 
-We have **experimental** executors for [**Ray**](https://www.ray.io/) (see [#488](https://github.com/cubed-dev/cubed/issues/488)), [**Globus Compute**](https://www.globus.org/) (see [#689](https://github.com/cubed-dev/cubed/pull/689)), and [**Apache Spark**](https://spark.apache.org/) (see [#499](https://github.com/cubed-dev/cubed/issues/499)). These have not had much testing, so we'd be very interested in feedback if you try them out.
+[**Ray**](https://www.ray.io/) is a popular way to scale Python and AI applications. You can run Cubed computations on a Ray cluster.
+
+We have **experimental** executors for [**Globus Compute**](https://www.globus.org/) (see [#689](https://github.com/cubed-dev/cubed/pull/689)) and [**Apache Spark**](https://spark.apache.org/) (see [#499](https://github.com/cubed-dev/cubed/issues/499)). These have not had much testing, so we'd be very interested in feedback if you try them out.
 
 ## Specifying an executor
 
