@@ -21,9 +21,7 @@ if platform.system() != "Windows":
     EXECUTORS["processes-single-task"] = create_executor("processes", executor_options)
 
 try:
-    executor_options = dict(
-        config=LITHOPS_LOCAL_CONFIG, wait_dur_sec=0.1, retries=0
-    )
+    executor_options = dict(config=LITHOPS_LOCAL_CONFIG, wait_dur_sec=0.1)
     EXECUTORS["lithops"] = create_executor("lithops", executor_options)
 except ImportError:
     pass
