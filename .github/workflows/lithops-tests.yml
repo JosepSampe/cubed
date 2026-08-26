@@ -15,7 +15,7 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         os: ["ubuntu-22.04", "macos-latest"]
         python-version: ["3.12"]
@@ -42,4 +42,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -vs
+          pytest -vs -x
