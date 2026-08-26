@@ -92,7 +92,7 @@ def map_unordered(
             partial_map_function,
             list(map_iterdata),  # lithops requires a list
             timeout=timeout,
-            include_modules=include_modules or [],
+            include_modules=include_modules,
             retries=retries,
         )
         start_times[group_name] = {k: time.monotonic() for k in futures}
@@ -145,7 +145,7 @@ def map_unordered(
                         group_name_to_function[group_name],
                         [input],
                         timeout=timeout,
-                        include_modules=include_modules or [],
+                        include_modules=include_modules,
                         retries=0,  # don't retry backup tasks
                     )
                     start_times[group_name].update(
@@ -168,68 +168,68 @@ def execute_dag(
 ) -> None:
     use_backups = kwargs.pop("use_backups", use_backups_default(spec))
     wait_dur_sec = kwargs.pop("wait_dur_sec", None)
+    retries = kwargs.pop("retries", 2)
     compute_id = kwargs.pop("compute_id")
+    lithops_executor = kwargs.pop("lithops_executor")
     allowed_mem = spec.allowed_mem if spec is not None else None
-    function_executor = FunctionExecutor(**kwargs)
-    runtime_memory_mb = function_executor.config[function_executor.backend].get(
-        "runtime_memory", None
-    )
+    runtime_memory_mb = lithops_executor.config[
+        lithops_executor.executor.backend
+    ].get("runtime_memory", None)
     if runtime_memory_mb is not None and allowed_mem is not None:
         runtime_memory = runtime_memory_mb * 1_000_000
         if runtime_memory < allowed_mem:
             raise ValueError(
                 f"Runtime memory ({runtime_memory}) is less than allowed_mem ({allowed_mem})"
             )
-    with RetryingFunctionExecutor(function_executor) as executor:
-        if not compute_arrays_in_parallel:
-            for name, node in visit_nodes(dag):
-                handle_operation_start_callbacks(callbacks, name)
+    if not compute_arrays_in_parallel:
+        for name, node in visit_nodes(dag):
+            handle_operation_start_callbacks(callbacks, name)
+            pipeline = node["pipeline"]
+            for result, stats in map_unordered(
+                lithops_executor,
+                [run_func],
+                [pipeline.mappable],
+                [name],
+                use_backups=use_backups,
+                return_stats=True,
+                wait_dur_sec=wait_dur_sec,
+                retries=retries,
+                func=pipeline.function,
+                config=pipeline.config,
+                name=name,
+                compute_id=compute_id,
+            ):
+                handle_callbacks(callbacks, result, stats)
+            handle_operation_end_callbacks(callbacks, name)
+    else:
+        for gen in visit_node_generations(dag):
+            group_map_functions = []
+            group_map_iterdata = []
+            group_names = []
+            for name, node in gen:
                 pipeline = node["pipeline"]
-                for result, stats in map_unordered(
-                    executor,
-                    [run_func],
-                    [pipeline.mappable],
-                    [name],
-                    use_backups=use_backups,
-                    return_stats=True,
-                    wait_dur_sec=wait_dur_sec,
-                    # kwargs below
-                    func=pipeline.function,
-                    config=pipeline.config,
-                    name=name,
-                    compute_id=compute_id,
-                ):
-                    handle_callbacks(callbacks, result, stats)
+                f = partial(
+                    run_func, func=pipeline.function, config=pipeline.config
+                )
+                group_map_functions.append(f)
+                group_map_iterdata.append(pipeline.mappable)
+                group_names.append(name)
+            for name in group_names:
+                handle_operation_start_callbacks(callbacks, name)
+            for result, stats in map_unordered(
+                lithops_executor,
+                group_map_functions,
+                group_map_iterdata,
+                group_names,
+                use_backups=use_backups,
+                return_stats=True,
+                wait_dur_sec=wait_dur_sec,
+                retries=retries,
+                compute_id=compute_id,
+            ):
+                handle_callbacks(callbacks, result, stats)
+            for name in group_names:
                 handle_operation_end_callbacks(callbacks, name)
-        else:
-            for gen in visit_node_generations(dag):
-                group_map_functions = []
-                group_map_iterdata = []
-                group_names = []
-                for name, node in gen:
-                    pipeline = node["pipeline"]
-                    f = partial(
-                        run_func, func=pipeline.function, config=pipeline.config
-                    )
-                    group_map_functions.append(f)
-                    group_map_iterdata.append(pipeline.mappable)
-                    group_names.append(name)
-                for name in group_names:
-                    handle_operation_start_callbacks(callbacks, name)
-                for result, stats in map_unordered(
-                    executor,
-                    group_map_functions,
-                    group_map_iterdata,
-                    group_names,
-                    use_backups=use_backups,
-                    return_stats=True,
-                    wait_dur_sec=wait_dur_sec,
-                    # TODO: other kwargs (func, config, name)
-                    compute_id=compute_id,
-                ):
-                    handle_callbacks(callbacks, result, stats)
-                for name in group_names:
-                    handle_operation_end_callbacks(callbacks, name)
 
 
 def standardise_lithops_stats(name: str, future: RetryingFuture) -> dict[str, Any]:
@@ -245,15 +245,45 @@ def standardise_lithops_stats(name: str, future: RetryingFuture) -> dict[str, An
     )
 
 
+_FUNCTION_EXECUTOR_SKIP = frozenset(
+    {
+        "use_backups",
+        "wait_dur_sec",
+        "retries",
+        "compute_id",
+        "compute_arrays_in_parallel",
+        "lithops_executor",
+        "compile_function",
+        "max_workers",
+    }
+)
+
+
 class LithopsExecutor(DagExecutor):
     """An execution engine that uses Lithops."""
 
     def __init__(self, **kwargs: Any) -> None:
         super().__init__(**kwargs)
+        self._lithops_executor: RetryingFunctionExecutor | None = None
 
     @property
     def name(self) -> str:
         return "lithops"
+
+    def _get_lithops_executor(self, merged_kwargs: dict[str, Any]):
+        if self._lithops_executor is None:
+            function_executor = FunctionExecutor(
+                **{
+                    key: value
+                    for key, value in merged_kwargs.items()
+                    if key not in _FUNCTION_EXECUTOR_SKIP
+                }
+            )
+            function_executor.__enter__()
+            self._lithops_executor = RetryingFunctionExecutor(
+                function_executor
+            )
+        return self._lithops_executor
 
     def execute_dag(
         self,
@@ -269,5 +299,6 @@ class LithopsExecutor(DagExecutor):
             callbacks=callbacks,
             spec=spec,
             compute_id=compute_id,
+            lithops_executor=self._get_lithops_executor(merged_kwargs),
             **merged_kwargs,
         )

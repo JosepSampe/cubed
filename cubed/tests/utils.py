@@ -1,4 +1,5 @@
 import platform
+import sys
 from collections import Counter
 from collections.abc import Iterable
 
@@ -18,7 +19,11 @@ LITHOPS_LOCAL_CONFIG = {
         "monitoring_interval": 0.1,
         "include_modules": None,
     },
-    "localhost": {"version": 1},
+    "localhost": {
+        "version": 1,
+        "worker_processes": 1,
+        "runtime": sys.executable,
+    },
 }
 
 ALL_EXECUTORS = [create_executor("single-threaded")]
@@ -42,7 +47,9 @@ except ImportError:
     pass
 
 try:
-    executor_options = dict(config=LITHOPS_LOCAL_CONFIG, wait_dur_sec=0.1)
+    executor_options = dict(
+        config=LITHOPS_LOCAL_CONFIG, wait_dur_sec=0.1, retries=0
+    )
     ALL_EXECUTORS.append(create_executor("lithops", executor_options))
     MAIN_EXECUTORS.append(create_executor("lithops", executor_options))
 except ImportError:

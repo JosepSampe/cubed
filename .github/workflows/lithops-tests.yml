@@ -42,4 +42,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -vs -x
+          pytest -vs -x -k lithops
