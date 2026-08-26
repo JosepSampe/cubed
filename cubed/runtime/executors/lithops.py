@@ -285,6 +285,16 @@ class LithopsExecutor(DagExecutor):
             )
         return self._lithops_executor
 
+    def __getstate__(self):
+        # Spec/pipeline config is pickled into Lithops workers. The live
+        # FunctionExecutor holds monitor threads and cannot be pickled.
+        state = self.__dict__.copy()
+        state["_lithops_executor"] = None
+        return state
+
+    def __setstate__(self, state):
+        self.__dict__.update(state)
+
     def execute_dag(
         self,
         dag: MultiDiGraph,
