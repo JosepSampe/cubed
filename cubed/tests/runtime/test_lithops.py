@@ -110,7 +110,7 @@ def test_failure(
 @pytest.mark.parametrize(
     ("timing_map", "n_tasks", "retries"),
     [
-        ({0: [3]}, 10, 2),
+        ({0: [60]}, 10, 2),
     ],
 )
 # fmt: on
