@@ -52,15 +52,15 @@ diagnostics = [
 dask = ["dask < 2024.12.0"]
 dask-distributed = ["distributed < 2024.12.0"]
 icechunk = ["icechunk"]
-lithops = ["lithops[aws] @ git+https://github.com/JosepSampe/lithops.git@tests"]
+lithops = ["lithops[aws] @ git+https://github.com/JosepSampe/lithops.git@monitoring"]
 lithops-aws = [
     "cubed[diagnostics]",
-    "lithops[aws] @ git+https://github.com/JosepSampe/lithops.git@tests",
+    "lithops[aws] @ git+https://github.com/JosepSampe/lithops.git@monitoring",
     "s3fs",
 ]
 lithops-gcp = [
     "cubed[diagnostics]",
-    "lithops[gcp] @ git+https://github.com/JosepSampe/lithops.git@tests",
+    "lithops[gcp] @ git+https://github.com/JosepSampe/lithops.git@monitoring",
     "gcsfs",
 ]
 modal = [
