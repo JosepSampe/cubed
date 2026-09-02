@@ -13,7 +13,13 @@ from lithops.retries import RetryingFunctionExecutor
 from cubed.runtime.executors.lithops import map_unordered
 
 
-def run_test(function, input, retries, timeout=10, use_backups=False):
+def run_test(function, input, retries, timeout=10, use_backups=False, wait_dur_sec=0.1):
+    # wait_dur_sec is how often the map_unordered loop looks for completed
+    # tasks, and so how precisely their durations are measured. The default
+    # of 1s rounds every duration up to the next second, which inflates the
+    # median that should_launch_backup compares against and delays straggler
+    # detection. 0.1 matches the rest of the Cubed suite (see
+    # LITHOPS_LOCAL_CONFIG in cubed/tests/utils.py)
     outputs = set()
     with RetryingFunctionExecutor(LocalhostExecutor()) as executor:
         for output in map_unordered(
@@ -24,6 +30,7 @@ def run_test(function, input, retries, timeout=10, use_backups=False):
             timeout=timeout,
             retries=retries,
             use_backups=use_backups,
+            wait_dur_sec=wait_dur_sec,
         ):
             outputs.add(output)
     return outputs
